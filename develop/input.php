@@ -27,7 +27,7 @@ if (!empty($_POST) && empty($_SESSION['input_data'])) {
     }
 
     // 電話番号の確認
-    $reg_str = "/^[0-9]{1,4}-[0-9]{2,4}-[0-9]{3,4}$/";
+    $reg_str = "/^[0-9]{2,4}-[0-9]{2,4}-[0-9]{3,4}$/";
     if (empty($_POST['tel'])) {
         $error_message['tel'] = '電話番号が入力されていません';
     } elseif (!preg_match($reg_str, $_POST['tel'])) {
