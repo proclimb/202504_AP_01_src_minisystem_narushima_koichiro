@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         'tel'       => $_POST['tel'],
         'email'     => $_POST['email'],
         'birthday'  => $_POST['birthday'],
-        'gender'    => $_POST['gender'],
+        'gender'    => $_POST['gender']
     ];
 }
 
@@ -29,7 +29,7 @@ $user->create($data);
 <head>
     <meta charset="utf-8">
     <title>完了画面</title>
-    <link rel="stylesheet" href="style_new.css" j>
+    <link rel="stylesheet" href="style_new.css">
 </head>
 
 <body>
