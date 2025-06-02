@@ -16,8 +16,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     ];
 }
 
-//$podから作った新しいインスタンスを$userに代入
-$user = new User($pod);
+//$pdoから作った新しいインスタンスを$userに代入
+$user = new User($pdo);
 
 // SQLを実行
 $user->create($data);
@@ -29,7 +29,7 @@ $user->create($data);
 <head>
     <meta charset="utf-8">
     <title>完了画面</title>
-    <link rel="styleseet" href="style_new.css" j>
+    <link rel="stylesheet" href="style_new.css" j>
 </head>
 
 <body>
