@@ -74,7 +74,7 @@ $_POST = $result;
         <form action="delete.php" method="post" name="delete">
             <input type="hidden" name="id" value="<?php echo $_POST['id'] ?>">
             <button type="submit">削除</button>
-        </form>m
+        </form>
     </div>
 </body>
 
