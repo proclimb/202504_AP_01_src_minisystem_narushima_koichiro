@@ -385,9 +385,9 @@ input[type=button] {
 }
 
 /* 8619 */
-input[type=button]+button {
+/* input[type=button]+button {
     display: inline-block;
-}
+} */
 
 /* 8623~8625 */
 input+div,

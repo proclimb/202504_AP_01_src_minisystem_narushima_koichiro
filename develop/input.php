@@ -19,7 +19,7 @@ if (!empty($_POST) && empty($_SESSION['input_data'])) {
     }
 
     // メールアドレス確認
-    $reg_str = "/^[A-Za-z0-9]{1}[A-Za-z0-9_.-]*@[A-Za-z0-9_-]+.[A-Za-z0-9]+$/";
+    $reg_str = "/^[A-Za-z0-9]{1}[A-Za-z0-9_.-]*@[A-Za-z0-9_.-]+.[A-Za-z0-9]+$/";
     if (empty($_POST['email'])) {
         $error_message['email'] = 'メールアドレスが入力されていません';
     } elseif (!preg_match($reg_str, $_POST['email'])) {
@@ -106,16 +106,16 @@ session_destroy();
                 <div>
                     <label>性別<span>必須</span></label>
                     <?php if (empty($_POST['gender'])) { ?>
-                        <input type="radio" name="gender" value="男性" checked> 男性
-                        <input type="radio" name="gender" value="女性"> 女性
+                        <input type="radio" name="gender" value="1" checked> 男性
+                        <input type="radio" name="gender" value="2"> 女性
                     <?php } ?>
-                    <?php if ($_POST['gender'] == "男性") { ?>
-                        <input type="radio" name="gender" value="男性" checked> 男性
-                        <input type="radio" name="gender" value="女性"> 女性
+                    <?php if ($_POST['gender'] == "1") { ?>
+                        <input type="radio" name="gender" value="1" checked> 男性
+                        <input type="radio" name="gender" value="2"> 女性
                     <?php } ?>
-                    <?php if ($_POST['gender'] == "女性") { ?>
-                        <input type="radio" name="gender" value="男性"> 男性
-                        <input type="radio" name="gender" value="女性" checked> 女性
+                    <?php if ($_POST['gender'] == "2") { ?>
+                        <input type="radio" name="gender" value="1"> 男性
+                        <input type="radio" name="gender" value="2" checked> 女性
                     <?php } ?>
                 </div>
             </div>

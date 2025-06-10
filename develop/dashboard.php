@@ -40,7 +40,13 @@ $result = $user->search($keyword);
                     <td><?php echo ($val['kana']); ?></td>
                     <td><?php echo ($val['email']); ?></td>
                     <td><?php echo ($val['tel']); ?></td>
-                    <td><?php echo ($val['gender']); ?></td>
+                    <td><?php
+                        if ($val['gender'] == 1) {
+                            echo '男性';
+                        } elseif ($val['gender'] == 2) {
+                            echo '女性';
+                        } ?>
+                    </td>
                 </tr>
             <?php } ?>
         </table>
