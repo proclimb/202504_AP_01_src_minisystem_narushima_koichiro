@@ -378,8 +378,10 @@ input[type=button] {
     -moz-box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.28);
     -webkit-box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.28);
     box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.28);
-    margin-left: 180px;
-    margin-right: 25px;
+    /* margin-left: 180px;
+    margin-right: 25px; */
+    display: block;
+    margin: 0 auto;
 }
 
 /* 8619 */
