@@ -4,6 +4,7 @@ require_once 'user.php';
 
 $user = new User($pdo);
 
+$keyword = $_POST["keyword"];
 $result = $user->search($keyword);
 ?>
 
@@ -50,9 +51,26 @@ $result = $user->search($keyword);
             <?php } ?>
         </table>
     <?php } ?>
-    <a href="index.php">
-        <button type="button">TOPに戻る</button>
-    </a>
+    <div>
+        <!-- 何らかの表があれば検索ボタンを表示 -->
+        <?php if (!empty($val)) { ?>
+            <form action="dashboard.php" method="post">
+                <input type="text" name="keyword" placeholder="名前を入力する" value="<?php echo $_POST['keyword'] ?>">
+                <button type="submit">名前で検索する</button>
+            </form>
+        <?php } ?>
+
+        <!-- 検索が実行された場合のみ「ダッシュボードに戻る」ボタンを表示 -->
+        <?php if (!empty($keyword)) { ?>
+            <form action="dashboard.php" method="post">
+                <button type="submit">ダッシュボードに戻る</button>
+            </form>
+        <?php } ?>
+
+        <a href="index.php">
+            <button type="button">TOPに戻る</button>
+        </a>
+    </div>
 </body>
 
 </html>
