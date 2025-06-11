@@ -60,10 +60,10 @@ $result = $user->search($keyword);
             </form>
         <?php } ?>
 
-        <!-- 検索が実行された場合のみ「ダッシュボードに戻る」ボタンを表示 -->
+        <!-- 検索が実行された場合のみ「全件表示」ボタンを表示 -->
         <?php if (!empty($keyword)) { ?>
             <form action="dashboard.php" method="post">
-                <button type="submit">ダッシュボードに戻る</button>
+                <button type="submit">全件表示</button>
             </form>
         <?php } ?>
 
