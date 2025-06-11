@@ -4,8 +4,13 @@ require_once 'user.php';
 
 $user = new User($pdo);
 
-$keyword = $_POST["keyword"];
+$keyword = isset($_POST["keyword"]) ? trim($_POST["keyword"]) : "";
+$keyword = htmlspecialchars($keyword, ENT_QUOTES, 'UTF-8');
+
 $result = $user->search($keyword);
+if (!$result) {
+    $result = [];
+}
 ?>
 
 <!DOCTYPE html>
