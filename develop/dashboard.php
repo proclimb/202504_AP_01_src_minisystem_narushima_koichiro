@@ -45,8 +45,7 @@ $result = $user->search($keyword);
                             echo '男性';
                         } elseif ($val['gender'] == 2) {
                             echo '女性';
-                        } ?>
-                    </td>
+                        } ?></td>
                 </tr>
             <?php } ?>
         </table>

@@ -10,15 +10,16 @@ class User
 
     public function create($data)
     {
-        $sql = "INSERT INTO users (name,kana,email,tel,gender,create_dt)
-                VALUES (:name, :kana, :email, :tel, :gender, now())";
+        $sql = "INSERT INTO users (name,kana,email,tel,gender,create_dt,flag)
+                VALUES (:name, :kana, :email, :tel, :gender, now(), :flag )";
         $stmt = $this->pdo->prepare($sql);
         return $stmt->execute([
             ':name'     => $data['name'],
             ':kana'     => $data['kana'],
             ':email'    => $data['email'],
             ':tel'      => $data['tel'],
-            ':gender'   => $data['gender']
+            ':gender'   => $data['gender'],
+            ':flag'     => '1'
         ]);
     }
 
@@ -50,15 +51,17 @@ class User
             $stmt = $this->pdo->prepare("SELECT * FROM users WHERE name LIKE ?");
             $stmt->execute(["%{$keyword}%"]);
         } else {
-            $stmt = $this->pdo->query("SELECT * FROM users");
+            $stmt = $this->pdo->query("SELECT * FROM users WHERE flag = 1");
         }
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
     public function delete($id)
     {
-        $sql = "DELETE FROM users WHERE id = :id";
+        $sql = "UPDATE users SET flag = 0 WHERE id = :id AND flag = 1";
         $stmt = $this->pdo->prepare($sql);
-        return $stmt->execute([':id' => $id]);
+        return $stmt->execute([
+            ':id' => $id,
+        ]);
     }
 }
