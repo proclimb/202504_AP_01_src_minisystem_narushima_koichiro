@@ -48,7 +48,7 @@ class User
     public function search($keyword = '')
     {
         if ($keyword) {
-            $stmt = $this->pdo->prepare("SELECT * FROM users WHERE name LIKE ?");
+            $stmt = $this->pdo->prepare("SELECT * FROM users WHERE name LIKE ? AND flag = 1");
             $stmt->execute(["%{$keyword}%"]);
         } else {
             $stmt = $this->pdo->query("SELECT * FROM users WHERE flag = 1");
